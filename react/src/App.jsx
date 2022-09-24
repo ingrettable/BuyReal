@@ -3,6 +3,7 @@ import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import PlaidButtonGroup from "./Components/PlaidButtonGroup";
+import TextContainer from "./Components/TextContainer";
 import { Button } from "@mui/material";
 
 function App(props) {
