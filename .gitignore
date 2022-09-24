@@ -2,3 +2,4 @@ venv
 __pycache__
 .env
 */.env
+react/node_modules

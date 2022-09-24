@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
+import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 
 function App(props) {
   const [token, setToken] = useState(null);
@@ -66,6 +67,7 @@ function App(props) {
   
   return (
     <div>
+      <ResponsiveAppBar />
       <button onClick={() => open()
         } disabled={!ready}>
         <strong>Link account</strong>
