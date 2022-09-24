@@ -103,7 +103,7 @@ def create_link_token():
     try:
         request = LinkTokenCreateRequest(
             products=products,
-            client_name="Plaid Quickstart",
+            client_name="BuyReal",
             country_codes=list(map(lambda x: CountryCode(x), PLAID_COUNTRY_CODES)),
             language='en',
             user=LinkTokenCreateRequestUser(
