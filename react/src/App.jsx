@@ -80,6 +80,7 @@ function App(props) {
       <ResponsiveAppBar linkAccount={linkAccount} />
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
+      <TextContainer title={"About Us"} />
       {!loading &&
         data != null &&
         Object.entries(data).map((entry, i) => (
