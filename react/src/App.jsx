@@ -69,6 +69,8 @@ function App(props) {
   return (
     <div>
       <ResponsiveAppBar />
+      
+      {/* Login with Plaid */}
       <button onClick={() => open()
         } disabled={!ready}>
         <strong>Link account</strong>

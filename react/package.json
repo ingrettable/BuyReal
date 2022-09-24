@@ -15,6 +15,7 @@
     "plaid": "^9.0.0-beta.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.4.0",
     "react-plaid-link": "^3.3.0",
     "react-scripts": "4.0.3",
     "yarn": "^1.22.19"
