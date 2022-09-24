@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
+import PlaidButtonGroup from "./Components/PlaidButtonGroup";
+import { Button } from "@mui/material";
 
 function App(props) {
   const [token, setToken] = useState(null);
@@ -22,7 +24,6 @@ function App(props) {
   // Creates a Link token
   const createLinkToken = React.useCallback(async () => {
     // For OAuth, use previously generated Link token
-    console.log('hi')
     if (window.location.href.includes("?oauth_state_id=")) {
       const linkToken = localStorage.getItem('link_token');
       setToken(linkToken);
@@ -65,19 +66,20 @@ function App(props) {
       open();
     }
   }, [token, isOauth, ready, open]);
-  
+
+  const buttonList = [<Button onClick={() => open()
+  } disabled={!ready}>
+    <strong>Link account</strong>
+  </Button>,
+  <Button onClick={() => getTransactions()
+  } disabled={!ready}> Get Transactions
+  </Button>]
+
   return (
     <div>
       <ResponsiveAppBar />
-      
+      <PlaidButtonGroup buttons={buttonList} />
       {/* Login with Plaid */}
-      <button onClick={() => open()
-        } disabled={!ready}>
-        <strong>Link account</strong>
-      </button>
-      <button onClick={() => getTransactions()
-        } disabled={!ready}> Get Transactions 
-      </button>
       {!loading &&
         data != null &&
         Object.entries(data).map((entry, i) => (
@@ -85,7 +87,7 @@ function App(props) {
             <code>{JSON.stringify(entry[1], null, 2)}</code>
           </pre>
         )
-      )}
+        )}
     </div>
   );
 }

@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import IconLogo from './IconLogo';
 
 const pages = ['About Us', 'Mission', 'Next'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Link Account'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -24,6 +24,7 @@ const ResponsiveAppBar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
