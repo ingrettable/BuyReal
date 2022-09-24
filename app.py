@@ -99,6 +99,7 @@ def info():
 
 @app.route('/api/create_link_token', methods=['GET'])
 def create_link_token():
+    print('start try loop')
     try:
         request = LinkTokenCreateRequest(
             products=products,
@@ -115,6 +116,7 @@ def create_link_token():
         response = client.link_token_create(request)
         return jsonify(response.to_dict())
     except plaid.ApiException as e:
+        print(e.body)
         return json.loads(e.body)
 
 # Exchange token flow - exchange a Link public_token for

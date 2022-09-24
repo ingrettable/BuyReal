@@ -22,6 +22,7 @@ function App(props) {
   // Creates a Link token
   const createLinkToken = React.useCallback(async () => {
     // For OAuth, use previously generated Link token
+    console.log('hi')
     if (window.location.href.includes("?oauth_state_id=")) {
       const linkToken = localStorage.getItem('link_token');
       setToken(linkToken);
