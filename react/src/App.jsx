@@ -19,6 +19,8 @@ function App(props) {
       },
       body: `public_token=${publicToken}`,
     });
+    await getTransactions();
+    await getTransactions();
   }, []);
 
   // Creates a Link token
