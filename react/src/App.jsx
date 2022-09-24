@@ -20,7 +20,6 @@ function App(props) {
       body: `public_token=${publicToken}`,
     });
     await getTransactions();
-    await getTransactions();
   }, []);
 
   // Creates a Link token
@@ -41,7 +40,33 @@ function App(props) {
   const getTransactions = React.useCallback(async () => {
     setLoading(true);
     const response = await fetch("/api/transactions", {});
-    const data = await response.json();
+    let data = await response.json();
+
+    data = Object.entries(data['latest_transactions']).filter(entry => entry[1].amount > 0 );
+    
+    let names = ["Brice",
+      "Nate",
+      "Rudy",
+      "Easton",
+      "Killian",
+      "Casey",
+      "Aaron",
+      "Devyn",
+      "Joaquin",
+      "Raymond",
+      "Bryce",
+      "Dalton"
+    ]
+
+    data.map((entry, i) => {
+      entry.address = fetch("/api/certificate", {
+        "name": names[Math.round(Math.random() * 13)],
+        "spent": entry.amount,
+        "merchant": entry.merchant_name,
+        "location": entry.location || "Somewhere"
+      }).address
+    });
+
     setData(data);
     setLoading(false);
   }, [setData, setLoading]);
@@ -84,10 +109,10 @@ function App(props) {
       {/* Login with Plaid */}
       {!loading &&
         data != null &&
-        Object.entries(data).map((entry, i) => (
-          <pre key={i}>
-            <code>{JSON.stringify(entry[1], null, 2)}</code>
-          </pre>
+        data.map((entry, i) => (
+          <li key={i}>
+            {entry}
+          </li>
         )
         )}
     </div>
