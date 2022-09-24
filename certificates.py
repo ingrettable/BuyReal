@@ -25,7 +25,7 @@ def completeCertificate(name, spent, merchant, location, fontsize=100):
     draw.text((700,900), spent, fill=(39,119,67), font = font)
     draw.text((200,1100), merchant, fill=(39,119,67), font = font)
     draw.text((1150, 1100), location, fill=(39,119,67), font = font)
-    img_name = hash(name + spent + merchant + location)
+    img_name = str(abs(hash(name + spent + merchant + location))) + '.jpg'
     img.save('Public/generated/' + img_name)
     return 'Public/generated/' + img_name
 
