@@ -18,6 +18,7 @@ import os
 import json
 import time
 from dotenv import load_dotenv
+import certificates
 load_dotenv()
 
 app = Flask(__name__)
@@ -154,6 +155,11 @@ def refresh_transactions():
 
 # Retrieve Transactions for an Item
 # https://plaid.com/docs/#transactions
+
+@app.route('/api/certificate', methods=['GET'])
+def get_certificates():
+  img_name = certificates.completeCertificate(name, spent, merchant, location)
+  return jsonify({'address': img_name})
 
 @app.route('/api/transactions', methods=['GET'])
 def get_transactions():
