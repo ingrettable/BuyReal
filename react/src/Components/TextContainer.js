@@ -8,7 +8,8 @@ function TextContainer({title}) {
   return (
     <>
     <Box>
-      <Typography> {title} </Typography>
+      <Typography variant="h2"> {title} </Typography>
+      <Typography variant="body1" gutterBottom >lorem ipsum</Typography>
     </Box>
     </>
   )
