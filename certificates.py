@@ -17,15 +17,18 @@ def changeSize(img, x: int, y: int):
     newsize = (x, y)
     resized = img.resize(newsize)
     return resized
-def completeCertificate(img, name, spent, merchant, location, fontsize=100):
+def completeCertificate(name, spent, merchant, location, fontsize=100):
+    img = Image.open('public/bigSpenderCertified.jpg')
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("public/Lora-Regular.ttf", fontsize)
     draw.text((700,600), name, fill=(39,119,67), font = font)
     draw.text((700,900), spent, fill=(39,119,67), font = font)
     draw.text((200,1100), merchant, fill=(39,119,67), font = font)
     draw.text((1150, 1100), location, fill=(39,119,67), font = font)
-    img.show()
+    img_name = hash(name + spent + merchant + location)
+    img.save('Public/generated/' + img_name)
+    return 'Public/generated/' + img_name
 
-img = Image.open("public/bigSpenderCertified.jpg")
+# img = Image.open("public/bigSpenderCertified.jpg")
 #completeCertificate(img, "Daniel Kogan", "$1000000", "ESD", "Stony Brook")
 

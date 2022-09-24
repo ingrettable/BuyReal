@@ -94,18 +94,15 @@ function App(props) {
     }
   }, [token, isOauth, ready, open]);
 
-  const buttonList = [<Button onClick={() => open()
+  const linkAccount = <Button onClick={() => open()
   } disabled={!ready}>
     <strong>Link account</strong>
-  </Button>,
-  <Button onClick={() => getTransactions()
-  } disabled={!ready}> Get Transactions
-  </Button>]
+  </Button>
 
   return (
     <div>
-      <ResponsiveAppBar />
-      <PlaidButtonGroup buttons={buttonList} />
+      <ResponsiveAppBar linkAccount={linkAccount} />
+      {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       {!loading &&
         data != null &&
