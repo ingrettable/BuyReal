@@ -3,3 +3,4 @@ __pycache__
 .env
 */.env
 react/node_modules
+.DS_Store

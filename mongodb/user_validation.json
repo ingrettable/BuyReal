@@ -1,0 +1,48 @@
+{
+"bsonType" : "object",
+    "title" : "user",
+    "required" : [
+        "_id",
+        "fname",
+        "lname",
+        "username",
+        "linked_accounts",
+        "transactions"
+    ], 
+    "properties" : {
+        "_id" : {"bsonType" : "objectId"},
+        "fname" : {"bsonType" : "string"},
+        "lname" : {"bsonType" : "string"},
+        "username" : {"bsonType" : "string"},
+        "linked_accounts" : {
+            "bsonType" : "object",
+            "title" : "linked_account",
+            "required" : ["plaid_auth"],
+            "properties" : {
+                "plaid_auth" : {"bsonType" : "string"},
+                "twitter_auth" : {"bsonType" : "string"},
+                "discord_tag" : {"bsonType" : "string"}
+            },
+            "minProperties" : 2,
+            "additionalProperties": false
+        },
+        "transactions" : {
+            "bsonType" : "array",
+            "items" : {
+                "bsonType" : "object",
+                "title" : "transaction",
+                "required" : [
+                    "date",
+                    "merchant_name",
+                    "amount"
+                ],
+                "properties" : {
+                    "date" : {"bsonType" : "string"},
+                    "merchant_name" : {"bsonType" : "string"},
+                    "amount" : {"bsonType" : "number"},
+                    "city" : {"bsonType" : "string"}
+                }
+            }
+        }
+    }
+}
