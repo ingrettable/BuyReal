@@ -4,6 +4,7 @@ import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
+import Next from "./Components/WebElements/Next";
 import { Button } from "@mui/material";
 
 function App(props) {
@@ -116,6 +117,7 @@ function App(props) {
       {/* Login with Plaid */}
       <AboutUs />
       <Implementation />
+      <Next />
       {!loading &&
         data != null &&
         data.map((entry, i) => (
