@@ -26,10 +26,12 @@ def completeCertificate(name, spent, merchant, location, fontsize=100):
     draw.text((700,900), spent, fill=(39,119,67), font = font)
     draw.text((200,1100), merchant, fill=(39,119,67), font = font)
     draw.text((1150, 1100), location, fill=(39,119,67), font = font)
-    img_name = str(abs(hash(name + spent + merchant + location))) + '.jpg'
-    img.save('public/generated/' + img_name)
-    #img_byte_arr = io.BytesIO()
-    
+
+    # Scale the image to the correct size (original 2000 by 1545)
+    img = changeSize(img, 500, 386)
+
+    img_name = str(abs(hash(name + spent + merchant + location)))
+    img.save("public/generated/" + img_name + ".jpg", quality=95, optimize=True)
     return img_name
 
 

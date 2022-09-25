@@ -12,6 +12,7 @@ from plaid.api import plaid_api
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask import send_file
 from pymongo import MongoClient
 import plaid
 import os
@@ -165,9 +166,8 @@ def refresh_transactions():
 @app.route('/api/certificate', methods=['POST'])
 def get_certificates():
   data = request.get_json()
-  print(data)
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
-  return jsonify({'address': img_name})
+  return jsonify({'img_name': img_name})
 
 @app.route('/api/transactions', methods=['GET'])
 def get_transactions():
@@ -221,9 +221,10 @@ def get_balance():
         error_response = format_error(e)
         return jsonify(error_response)
 
-@app.route("/assets/<file>")
+@app.route("/assets/<file>", methods=['GET'])
 def get_image(file):
-  return f"<html> <img src=\"public/generated/{file}\" </html>"
+  filename = os.path.join(app.root_path, 'public/generated', file) + ".jpg"
+  return send_file(filename, mimetype='image/jpg')
 
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True, default=str))
