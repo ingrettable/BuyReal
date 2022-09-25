@@ -4,12 +4,9 @@ import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
-<<<<<<< HEAD
 import Feed from "./Components/WebElements/Feed";
 import Problem from "./Components/WebElements/Problem"
-=======
 import Next from "./Components/WebElements/Next";
->>>>>>> b7e441ab2dfd781c713d570427a100f616d98be6
 import { Button } from "@mui/material";
 
 function App(props) {
