@@ -38,7 +38,7 @@ function AboutUs({ }) {
             <PersonCard 
               name={"Alex Snit"} 
               img={"https://media-exp1.licdn.com/dms/image/C4E03AQE6Xp4EXOuCWA/profile-displayphoto-shrink_800_800/0/1664067825556?e=1669852800&v=beta&t=xnLWQ6jWrq9I34GKgPhUKvcOW5vDrsd-uBxNYVjti_w"} 
-              bio="Something"
+              bio="Hey! I'm Alex, a sophomore in the Computer Science Honors Program at Stony Brook!"
               gh="snitski"
               lin="alexander-snit"
             />

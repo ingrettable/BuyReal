@@ -9,6 +9,8 @@ import Problem from "./Components/WebElements/Problem"
 import Next from "./Components/WebElements/Next";
 import { Button } from "@mui/material";
 
+import namesJSON from './names.json';
+
 function App(props) {
   const [token, setToken] = useState(null);
   const [data, setData] = useState(null);
@@ -48,20 +50,6 @@ function App(props) {
     let data = await response.json();
 
     data = await Object.entries(data['latest_transactions']).filter(entry => entry[1].amount > 0 );
-    
-    let names = ["Brice",
-      "Nate",
-      "Rudy",
-      "Easton",
-      "Killian",
-      "Casey",
-      "Aaron",
-      "Devyn",
-      "Joaquin",
-      "Raymond",
-      "Bryce",
-      "Dalton"
-    ]
 
     for (let entry of data) {
       // Get location
@@ -84,7 +72,7 @@ function App(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "name": names[Math.floor(Math.random() * 12)],
+          "name": namesJSON[Math.floor(Math.random() * 4946)],
           "spent": String(entry[1].amount),
           "merchant": merchant,
           "location": location
@@ -128,7 +116,6 @@ function App(props) {
 
   return (
     <div>
-      <Button onClick={getTransactions}>Get Transactions</Button>
       <ResponsiveAppBar linkAccount={ linkAccount }/>
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
