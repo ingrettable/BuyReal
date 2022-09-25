@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
-import PlaidButtonGroup from "./Components/PlaidButtonGroup";
-import TextContainer from "./Components/TextContainer";
+// import PlaidButtonGroup from "./Components/PlaidButtonGroup";
+// import TextContainer from "./Components/TextContainer";
 import { Button } from "@mui/material";
 
 function App(props) {
@@ -20,6 +20,7 @@ function App(props) {
       },
       body: `public_token=${publicToken}`,
     });
+    const response = await fetch("/api/transactions", {});
     await getTransactions();
   }, []);
 
@@ -59,15 +60,18 @@ function App(props) {
       "Dalton"
     ]
 
-    data.map((entry, i) => {
-      entry.address = fetch("/api/certificate", {
-        "name": names[Math.round(Math.random() * 13)],
-        "spent": entry.amount,
-        "merchant": entry.merchant_name,
-        "location": entry.location || "Somewhere"
+    data.map(async (entry, i) => {
+      entry.address = await fetch("/api/certificate", {
+        method: "GET",
+        body: {
+          "name": names[Math.round(Math.random() * 13)],
+          "spent": entry.amount,
+          "merchant": entry.merchant_name,
+          "location": (entry.location ? entry.location.city : "Somewhere") 
+        }
       }).address
     });
-
+    console.log(data);
     setData(data);
     setLoading(false);
   }, [setData, setLoading]);
@@ -102,7 +106,7 @@ function App(props) {
 
   return (
     <div>
-      <ResponsiveAppBar linkAccount={linkAccount} />
+      <ResponsiveAppBar linkAccount={ linkAccount }/>
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       {!loading &&
