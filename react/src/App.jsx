@@ -4,6 +4,8 @@ import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
+import Feed from "./Components/WebElements/Feed";
+import Problem from "./Components/WebElements/Problem"
 import Next from "./Components/WebElements/Next";
 import { Button } from "@mui/material";
 import Problem from "./Components/WebElements/Problem";
@@ -46,7 +48,7 @@ function App(props) {
     const response = await fetch("/api/transactions", {});
     let data = await response.json();
 
-    data = Object.entries(data['latest_transactions']).filter(entry => entry[1].amount > 0 );
+    data = await Object.entries(data['latest_transactions']).filter(entry => entry[1].amount > 0 );
     
     let names = ["Brice",
       "Nate",
@@ -62,7 +64,21 @@ function App(props) {
       "Dalton"
     ]
 
-    data.map(async (entry, i) => {
+    for (let entry of data) {
+      // Get location
+      let merchant = entry[1].merchant_name;
+      if (merchant === null) {
+        merchant = "Somewhere";
+      }
+      let location = entry[1].location;
+      if (location === null) {
+        location = "Somewhere";
+      } else {
+        location = location.city;
+        if (location === null) {
+          location = "Somewhere";
+        }
+      }
       let response = await fetch("/api/certificate", {
         method: "POST",
         headers: {
@@ -71,16 +87,16 @@ function App(props) {
         body: JSON.stringify({
           "name": names[Math.floor(Math.random() * 12)],
           "spent": String(entry[1].amount),
-          "merchant": (entry[1].merchant === null ? entry[1].merchant : "Somewhere") ,
-          "location": (entry[1].location === null ? entry[1].location.city : "Somewhere") 
+          "merchant": merchant,
+          "location": location
         })
       })
       let json = await response.json();
-      console.log(json);
-    });
+      entry[1].img_name = json.img_name;
+    }
     console.log(data);
-    //setData(data);
-    //setLoading(false);
+    setData(data);
+    setLoading(false);
   }, [setData, setLoading]);
 
   let isOauth = false;
@@ -113,18 +129,26 @@ function App(props) {
 
   return (
     <div>
+      <button onClick={getTransactions}>Get Transactions</button>
       <ResponsiveAppBar linkAccount={ linkAccount }/>
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       <AboutUs />
       <Problem/>
       <Implementation />
+      <Problem />
+      <Feed />
       <Next />
       {!loading &&
         data != null &&
         data.map((entry, i) => (
           <li key={i}>
-            {entry}
+            <img src={"assets/" + entry[1].img_name} alt="certificate" 
+              style = {{
+                width: "100%",
+                height: "auto"
+              }}
+            />
           </li>
         )
         )}
