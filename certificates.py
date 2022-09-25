@@ -1,6 +1,7 @@
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+import io
 
 def xAxis(string, font=100):
     returnx = len(string) + 1000
@@ -26,7 +27,9 @@ def completeCertificate(name, spent, merchant, location, fontsize=100):
     draw.text((200,1100), merchant, fill=(39,119,67), font = font)
     draw.text((1150, 1100), location, fill=(39,119,67), font = font)
     img_name = 'public/generated/' + str(abs(hash(name + spent + merchant + location))) + '.jpg'
-    img.save('react/' + img_name)
+    #img.save(img_name)
+    #img_byte_arr = io.BytesIO()
+    
     return img_name
 
 # img = Image.open("public/bigSpenderCertified.jpg")
