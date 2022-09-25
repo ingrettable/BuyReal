@@ -135,7 +135,7 @@ function App(props) {
       <AboutUs />
       <Implementation />
       <Problem />
-      <Feed />
+      <Feed data={data} loading={loading}/>
       {!loading &&
         data != null &&
         data.map((entry, i) => (
