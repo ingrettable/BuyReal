@@ -7,12 +7,15 @@ import { Button, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
-export default function TransactionCard({ img }) {
+export default function TransactionCard({ img, data }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleTwitter = () => {
-    window.location = 'https://twitter.com/intent/tweet?hashtags=share%2C&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Ehashtag%7Ctwgr%5Eshare&text=Just%20connected%20my%20Twitter%20and%20Bank%20Account%20with%20%23BuyReal!%20Get%20ready%20for%20some%20%23bigSpender%20%23moneyTweets!%20Ratio%20%2B%20broke'
+    let link = 'https://twitter.com/intent/tweet?url=&text='
+    let needs_to_be_encoded = 'Just spent $' + data.amount + ' at ' + (data.merchant_name === null ? "Somewhere" : data.merchant_name) + '! #bigSpender #money'
+    link += encodeURIComponent(needs_to_be_encoded);
+    window.location = link
   }
   
   const style = {
