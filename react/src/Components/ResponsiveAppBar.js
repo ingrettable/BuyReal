@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import IconLogo from './IconLogo';
 
-const pages = ['Feed', 'About Us', 'Problem', 'Implementation', 'Next'];
+const pages = [];
 const settings = ['Link Account'];
 
 const ResponsiveAppBar = ({ linkAccount }) => {
