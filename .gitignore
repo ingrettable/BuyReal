@@ -4,3 +4,4 @@ __pycache__
 */.env
 react/node_modules
 .DS_Store
+public/generated/*
