@@ -18,6 +18,7 @@ import os
 import json
 import time
 from dotenv import load_dotenv
+import certificates
 load_dotenv()
 
 app = Flask(__name__)
@@ -103,7 +104,7 @@ def create_link_token():
     try:
         request = LinkTokenCreateRequest(
             products=products,
-            client_name="Plaid Quickstart",
+            client_name="BuyReal",
             country_codes=list(map(lambda x: CountryCode(x), PLAID_COUNTRY_CODES)),
             language='en',
             user=LinkTokenCreateRequestUser(
@@ -155,6 +156,13 @@ def refresh_transactions():
 # Retrieve Transactions for an Item
 # https://plaid.com/docs/#transactions
 
+@app.route('/api/certificate', methods=['POST'])
+def get_certificates():
+  data = request.get_json()
+  print(data)
+  img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
+  return jsonify({'address': img_name})
+
 @app.route('/api/transactions', methods=['GET'])
 def get_transactions():
     # Set cursor to empty to receive all historical updates
@@ -183,7 +191,7 @@ def get_transactions():
             pretty_print_response(response)
 
         # Return the 8 most recent transactions
-        latest_transactions = sorted(added, key=lambda t: t['date'])[-8:]
+        latest_transactions = sorted(added, key=lambda t: t['date'])[-16:]
         return jsonify({
             'latest_transactions': latest_transactions})
 
@@ -206,6 +214,10 @@ def get_balance():
     except plaid.ApiException as e:
         error_response = format_error(e)
         return jsonify(error_response)
+
+@app.route("/assets/<file>")
+def get_image(file):
+  return f"<html> <img src=\"/public/generated/{file_name}\" </html>"
 
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True, default=str))

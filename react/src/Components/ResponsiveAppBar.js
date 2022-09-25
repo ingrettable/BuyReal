@@ -14,16 +14,17 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import IconLogo from './IconLogo';
 
-const pages = ['About Us', 'Mission', 'Next'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Feed', 'About Us', 'Implementation', 'Next'];
+const settings = ['Link Account'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({ linkAccount }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -148,11 +149,8 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {linkAccount}
+              
             </Menu>
           </Box>
         </Toolbar>
