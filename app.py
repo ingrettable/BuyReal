@@ -17,7 +17,9 @@ import plaid
 import os
 import json
 import time
+import tweepy, os
 from dotenv import load_dotenv
+import numpy as np
 import certificates
 load_dotenv()
 
@@ -26,6 +28,10 @@ app = Flask(__name__)
 # Fill in your Plaid API keys - https://dashboard.plaid.com/account/keys
 PLAID_CLIENT_ID = os.getenv('PLAID_CLIENT_ID')
 PLAID_SECRET = os.getenv('PLAID_SECRET')
+
+auth = tweepy.OAuthHandler(os.getenv("TWITTER_API_KEY"), os.getenv("TWITTER_API_SECRET"))
+auth.set_access_token(os.getenv("TWITTER_ACCESS_TOKEN"), os.getenv("TWITTER_ACCESS_TOKEN_SECRET"))
+api = tweepy.API(auth)
 # Use 'sandbox' to test with Plaid's Sandbox environment (username: user_good,
 # password: pass_good)
 # Use `development` to test with live users and credentials and `production`
