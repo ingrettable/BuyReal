@@ -159,6 +159,7 @@ def refresh_transactions():
 @app.route('/api/certificate', methods=['POST'])
 def get_certificates():
   data = request.get_json()
+  print(data)
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
   return jsonify({'address': img_name})
 
