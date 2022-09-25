@@ -136,14 +136,13 @@ function App(props) {
       <Implementation />
       <Problem />
       <Feed />
-      <Next />
       {!loading &&
         data != null &&
         data.map((entry, i) => (
           <li key={i}>
             <img src={"assets/" + entry[1].img_name} alt="certificate" 
               style = {{
-                width: "100%",
+                width: "80%",
                 height: "auto"
               }}
             />
