@@ -159,6 +159,7 @@ def refresh_transactions():
 @app.route('/api/certificate', methods=['POST'])
 def get_certificates():
   data = request.get_json()
+  print(data)
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
   return jsonify({'address': img_name})
 
@@ -190,7 +191,7 @@ def get_transactions():
             pretty_print_response(response)
 
         # Return the 8 most recent transactions
-        latest_transactions = sorted(added, key=lambda t: t['date'])[-8:]
+        latest_transactions = sorted(added, key=lambda t: t['date'])[-16:]
         return jsonify({
             'latest_transactions': latest_transactions})
 

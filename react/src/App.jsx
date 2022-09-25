@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
-import PlaidButtonGroup from "./Components/PlaidButtonGroup";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
 import { Button } from "@mui/material";
@@ -21,7 +20,7 @@ function App(props) {
       },
       body: `public_token=${publicToken}`,
     });
-    await getTransactions();
+    const response = await fetch("/api/transactions", {});
     await getTransactions();
   }, []);
 
@@ -43,9 +42,43 @@ function App(props) {
   const getTransactions = React.useCallback(async () => {
     setLoading(true);
     const response = await fetch("/api/transactions", {});
-    const data = await response.json();
-    setData(data);
-    setLoading(false);
+    let data = await response.json();
+
+    data = Object.entries(data['latest_transactions']).filter(entry => entry[1].amount > 0 );
+    
+    let names = ["Brice",
+      "Nate",
+      "Rudy",
+      "Easton",
+      "Killian",
+      "Casey",
+      "Aaron",
+      "Devyn",
+      "Joaquin",
+      "Raymond",
+      "Bryce",
+      "Dalton"
+    ]
+
+    data.map(async (entry, i) => {
+      let reponse = await fetch("/api/certificate", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "name": names[Math.round(Math.random() * 13)],
+          "spent": String(entry[1].amount),
+          "merchant": entry[1].merchant_name,
+          "location": (entry[1].location === null ? entry[1].location.city : "Somewhere") 
+        })
+      })
+      console.log(reponse);
+      console.log(reponse.address);
+    });
+    console.log(data);
+    //setData(data);
+    //setLoading(false);
   }, [setData, setLoading]);
 
   let isOauth = false;
@@ -78,17 +111,17 @@ function App(props) {
 
   return (
     <div>
-      <ResponsiveAppBar linkAccount={linkAccount} />
+      <ResponsiveAppBar linkAccount={ linkAccount }/>
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       <AboutUs />
       <Implementation />
       {!loading &&
         data != null &&
-        Object.entries(data).map((entry, i) => (
-          <pre key={i}>
-            <code>{JSON.stringify(entry[1], null, 2)}</code>
-          </pre>
+        data.map((entry, i) => (
+          <li key={i}>
+            {entry}
+          </li>
         )
         )}
     </div>
