@@ -3,7 +3,8 @@ import { usePlaidLink } from "react-plaid-link";
 import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import PlaidButtonGroup from "./Components/PlaidButtonGroup";
-import TextContainer from "./Components/TextContainer";
+import AboutUs from "./Components/WebElements/AboutUs";
+import Implementation from "./Components/WebElements/Implementation";
 import { Button } from "@mui/material";
 
 function App(props) {
@@ -80,7 +81,8 @@ function App(props) {
       <ResponsiveAppBar linkAccount={linkAccount} />
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
-      <TextContainer title={"About Us"} body={"BuyReal is an exciting and original personal and social finance manager, which displays a random purchase of the day for each user. This information is displayed on BuyReal.tech, with everyone’s name, purchase price, merchandise and location printed on your very own certificate. You can also view the purchases of other users, allowing you to evaluate and reflect on the transactions of people around them or even influencers. These purchases are selected with delayed timing for your privacy. Accessing the website is simple, as you can log-on using your beloved credit or debit card information. Now, you’ll be able to see just how much your friends are spending on vBucks, or how much celebrities are spending on charities, luxuries and private jets! "} />
+      <AboutUs />
+      <Implementation />
       {!loading &&
         data != null &&
         Object.entries(data).map((entry, i) => (
