@@ -22,7 +22,7 @@ function AboutUs({ }) {
             <PersonCard 
               name={"Daniel Kogan"} 
               img={"https://media-exp1.licdn.com/dms/image/C4D03AQEMVb0H3Y1EvQ/profile-displayphoto-shrink_800_800/0/1632351957101?e=1669852800&v=beta&t=DBvqIDJDPSp6ve8zFVnXVmwEP7pQAfJYg6hn8s4jnfY"} 
-              bio="Something"
+              bio="Hello! My name is Daniel and I’m a Student in the Computer Science Honors program at SBU. Although everyone here is from DoIT, getting it done was a struggle"
               gh="daminals"
               lin="danielkogan123"
             />
