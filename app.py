@@ -217,7 +217,7 @@ def get_balance():
 
 @app.route("/assets/<file>")
 def get_image(file):
-  return send_file(f"./public/generated/{file_name}",mimetype='image/png')
+  return f"<html> <img src=\"/public/generated/{file_name}\" </html>"
 
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True, default=str))
