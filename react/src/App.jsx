@@ -8,7 +8,6 @@ import Feed from "./Components/WebElements/Feed";
 import Problem from "./Components/WebElements/Problem"
 import Next from "./Components/WebElements/Next";
 import { Button } from "@mui/material";
-import Problem from "./Components/WebElements/Problem";
 
 function App(props) {
   const [token, setToken] = useState(null);
@@ -136,7 +135,6 @@ function App(props) {
       <AboutUs />
       <Problem/>
       <Implementation />
-      <Problem />
       <Feed />
       <Next />
       {!loading &&
