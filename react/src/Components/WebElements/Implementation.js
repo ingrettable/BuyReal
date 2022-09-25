@@ -5,7 +5,7 @@ import TextContainer from "../TextContainer";
 
 function Implementation({}) {
   const title="Implementation"
-  const body=["In order to collect credit card transaction information in our backend, we used Flask/Python with integrated plaid API. This information was organized using Mongo. The website, BuyReal.tech was created using React and Material UI, with the interactive feature of linking your account. The project is hosted on Google Cloud."]
+  const body=["In order to collect credit card transaction information in our backend, we used Flask / Python integrated with the Plaid API. We created a database with MongoDB to store this information. The website, BuyReal.tech, was created using React and Material UI, with the interactive feature of linking your credit card account through Plaid Link. The Flask backend is also connected to a Twitter bot, which randomly highlights transactions posted to BuyReal."]
 
   return (
     <TextContainer id={'Implementation'} title={title} body={body}/>

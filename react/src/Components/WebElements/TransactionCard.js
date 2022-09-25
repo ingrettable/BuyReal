@@ -11,15 +11,18 @@ export default function TransactionCard({ img }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleTwitter = () => {
+    window.location = 'https://twitter.com/intent/tweet?hashtags=share%2C&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Ehashtag%7Ctwgr%5Eshare&text=Just%20connected%20my%20Twitter%20and%20Bank%20Account%20with%20%23BuyReal!%20Get%20ready%20for%20some%20%23bigSpender%20%23moneyTweets!%20Ratio%20%2B%20broke'
+  }
   
   const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: '50%',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    borderRadius: '20px',
     boxShadow: 24,
     p: 4,
   };
@@ -34,8 +37,11 @@ export default function TransactionCard({ img }) {
           alt="certificate of purchase"
         />
         <CardActions>
-          <Button size="small" color="primary">
+          <Button onClick={handleTwitter} size="small" color="primary">
             Share
+          </Button>
+          <Button onClick={handleOpen} size="small" color="primary">
+            Show Certificate
           </Button>
         </CardActions>
       </Card>
@@ -46,12 +52,7 @@ export default function TransactionCard({ img }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <img width={'100%'} src={img} />
         </Box>
       </Modal>
     </>
