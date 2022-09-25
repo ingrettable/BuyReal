@@ -156,7 +156,7 @@ def refresh_transactions():
 # Retrieve Transactions for an Item
 # https://plaid.com/docs/#transactions
 
-@app.route('/api/certificate', methods=['POST', 'GET'])
+@app.route('/api/certificate', methods=['POST'])
 def get_certificates():
   data = request.get_json()
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
