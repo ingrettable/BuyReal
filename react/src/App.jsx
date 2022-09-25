@@ -4,12 +4,8 @@ import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
-<<<<<<< HEAD
 import Feed from "./Components/WebElements/Feed";
 import Problem from "./Components/WebElements/Problem"
-=======
-import Next from "./Components/WebElements/Next";
->>>>>>> b7e441ab2dfd781c713d570427a100f616d98be6
 import { Button } from "@mui/material";
 
 function App(props) {
@@ -139,14 +135,13 @@ function App(props) {
       <Implementation />
       <Problem />
       <Feed />
-      <Next />
       {!loading &&
         data != null &&
         data.map((entry, i) => (
           <li key={i}>
             <img src={"assets/" + entry[1].img_name} alt="certificate" 
               style = {{
-                width: "100%",
+                width: "80%",
                 height: "auto"
               }}
             />
