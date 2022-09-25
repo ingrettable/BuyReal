@@ -4,8 +4,12 @@ import "./App.scss";
 import ResponsiveAppBar from "./Components/ResponsiveAppBar";
 import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
+<<<<<<< HEAD
 import Feed from "./Components/WebElements/Feed";
 import Problem from "./Components/WebElements/Problem"
+=======
+import Next from "./Components/WebElements/Next";
+>>>>>>> b7e441ab2dfd781c713d570427a100f616d98be6
 import { Button } from "@mui/material";
 
 function App(props) {
@@ -63,20 +67,20 @@ function App(props) {
     ]
 
     data.map(async (entry, i) => {
-      let reponse = await fetch("/api/certificate", {
+      let response = await fetch("/api/certificate", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "name": names[Math.round(Math.random() * 13)],
+          "name": names[Math.floor(Math.random() * 12)],
           "spent": String(entry[1].amount),
-          "merchant": entry[1].merchant_name,
+          "merchant": (entry[1].merchant === null ? entry[1].merchant : "Somewhere") ,
           "location": (entry[1].location === null ? entry[1].location.city : "Somewhere") 
         })
       })
-      console.log(reponse);
-      console.log(reponse.address);
+      let json = await response.json();
+      console.log(json);
     });
     console.log(data);
     //setData(data);
@@ -120,6 +124,7 @@ function App(props) {
       <Implementation />
       <Problem />
       <Feed />
+      <Next />
       {!loading &&
         data != null &&
         data.map((entry, i) => (

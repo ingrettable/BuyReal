@@ -9,10 +9,10 @@ import TransactionCard from "./TransactionCard";
 
 function AboutUs({ }) {
   const title = "About Us"
-  const body = ["BuyReal is an exciting and original personal and social finance manager, which displays a random purchase of the day for each user. This information is displayed on BuyReal.tech, with everyone’s name, purchase price, merchandise and location printed on your very own certificate. You can also view the purchases of other users, allowing you to evaluate and reflect on the transactions of people around them or even influencers. These purchases are selected with delayed timing for your privacy. Accessing the website is simple, as you can log-on using your beloved credit or debit card information. Now, you’ll be able to see just how much your friends are spending on V-Bucks, or how much celebrities are spending on charities, luxuries and private jets!"]
+  const body = ["BuyReal is an exciting and original personal and social finance manager, which displays a random purchase of the day for each user. This information is displayed on http://buyreal.tech, with everyone’s name, purchase price, merchandise and location printed on your very own certificate. You can also view the purchases of other users, allowing you to evaluate and reflect on the transactions of people around them or even influencers. These purchases are selected with delayed timing for your privacy. Accessing the website is simple, as you can log-on using your beloved credit or debit card information. Now, you’ll be able to see just how much your friends are spending on V-Bucks, or how much celebrities are spending on charities, luxuries and private jets!"]
 
   return (
-    <Grid container spacing={2} >
+    <Grid id={'AboutUs'} container spacing={2} >
       <Grid  xs={6}>
         <TextContainer title={title} body={body} />
       </Grid>
