@@ -1,17 +1,25 @@
 import tweepy, os
 from dotenv import load_dotenv
-from time import sleep
-from credentials import * 
-from config import QUERY, FOLLOW, LIKE, SLEEP_TIME
+import numpy as np
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
 
 load_dotenv()
 
-try:
-    auth = tweepy.OAuthHandler(os.environ.get("APIKey", 3), os.environ.get("APIKeySecret", 3))
-    auth.set_access_token(os.environ.get("AccessToken", 3), os.environ.get("AccessToken", 3))
-    print("Authentication OK")
-except:
-    print("Error during authentication")
 
+auth = tweepy.OAuthHandler("5SDGMGAxPL4DAwvjZIjIeIzSW", "v1aYj3OLgsXRsdv8Gcl81edTFuJyT8YEpzlyFHsnqLGJdaqb3w")
+auth.set_access_token("1573689140289454085-iAsncJeQHn2me4bEp8TW3UOq9sRoEZ", "6kzS0lCWdG8p5IcXrV41LAAhDdE85LAAMzTegYwxn8vNH")
 api = tweepy.API(auth)
-api.update_status("Test tweet")
+#tweet='Hello world!'
+#api.update_status(tweet)
+
+
+#Generate text tweet with media (image)
+img = Image.open(("test2.png"))
+
+api.update_with_media(img, "#BigSpender")
+
+
+
