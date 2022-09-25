@@ -6,6 +6,7 @@ import AboutUs from "./Components/WebElements/AboutUs";
 import Implementation from "./Components/WebElements/Implementation";
 import Next from "./Components/WebElements/Next";
 import { Button } from "@mui/material";
+import Problem from "./Components/WebElements/Problem";
 
 function App(props) {
   const [token, setToken] = useState(null);
@@ -116,6 +117,7 @@ function App(props) {
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       <AboutUs />
+      <Problem/>
       <Implementation />
       <Next />
       {!loading &&
