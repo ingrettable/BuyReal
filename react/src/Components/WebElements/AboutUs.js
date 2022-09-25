@@ -29,7 +29,7 @@ function AboutUs({ }) {
             <PersonCard 
               name={"Dylan Scott"} 
               img={"https://media-exp1.licdn.com/dms/image/C4D03AQFYLdsaGjzPAw/profile-displayphoto-shrink_800_800/0/1650065111950?e=1669852800&v=beta&t=V_AHZxG99DDAi1axTRiUGxN-gjgnaHq_JToz5hMhljM"} 
-              bio="Something"
+              bio="Hi, I'm Dylan and I'm a Junior CS Honors student at SBU. My favorite color is blue."
               gh="dyscott"
               lin="dylanscott821"
             />
