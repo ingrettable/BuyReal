@@ -45,7 +45,7 @@ function AboutUs({ }) {
             <PersonCard 
               name={"Gretta Halollari"} 
               img={"https://cdn.discordapp.com/attachments/838386669736165417/1023428730116386826/ED6D7EA9-FD5D-4EDA-A7C2-BAF4A6B25530_Original.jpg"} 
-              bio="Something"
+              bio="Hi, I'm Gretta and I'm a sophomore at SBU!"
               gh="ingrettable"
               lin="grettahalollari"
             />
