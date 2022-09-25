@@ -30,6 +30,7 @@ def completeCertificate(name, spent, merchant, location, fontsize=100):
     img.save("public/generated/" + img_name + ".jpg")
     return img_name
 
+
 # img = Image.open("public/bigSpenderCertified.jpg")
 #completeCertificate(img, "Daniel Kogan", "$1000000", "ESD", "Stony Brook")
 

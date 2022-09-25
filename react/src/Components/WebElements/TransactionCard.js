@@ -5,29 +5,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-export default function PersonCard({ img, name, bio, gh, lin }) {
+export default function TransactionCard({ img }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
         <CardMedia
           component="img"
           height="140"
           image={img}
-          alt={name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            Lizard
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {bio}
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
+      </CardActionArea>
       <CardActions>
-        <Button onClick={() => window.location = 'https://github.com/' + gh} size="small" color="primary">
-          GitHub
-        </Button>
-        <Button onClick={() => window.location = 'https://www.linkedin.com/in/' + lin} size="small" color="primary">
-          LinkedIn
+        <Button onClick={ () => { console.log("Clicked!"); } }size="small" color="primary">
+          Share
         </Button>
       </CardActions>
     </Card>
