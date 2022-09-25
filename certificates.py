@@ -23,7 +23,7 @@ def completeCertificate(name, spent, merchant, location, fontsize=100):
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("public/Lora-Regular.ttf", fontsize)
     draw.text((700,600), name, fill=(39,119,67), font = font)
-    draw.text((700,900), spent, fill=(39,119,67), font = font)
+    draw.text((700,900), "$" + spent, fill=(39,119,67), font = font)
     draw.text((200,1100), merchant, fill=(39,119,67), font = font)
     draw.text((1150, 1100), location, fill=(39,119,67), font = font)
 

@@ -14,12 +14,13 @@ from flask import request
 from flask import jsonify
 from flask import send_file
 from pymongo import MongoClient
-import plaid
+import plaid, random
 import os
 import json
 import time
 from dotenv import load_dotenv
 import certificates
+import twitterbot
 load_dotenv()
 
 app = Flask(__name__)
@@ -101,7 +102,6 @@ def info():
 
 @app.route('/api/create_link_token', methods=['GET'])
 def create_link_token():
-    print('start try loop')
     try:
         request = LinkTokenCreateRequest(
             products=products,
@@ -161,6 +161,8 @@ def refresh_transactions():
 def get_certificates():
   data = request.get_json()
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
+  if random.randInt(0,100) > 5:
+    twitterbot.
   return jsonify({'img_name': img_name})
 
 @app.route('/api/transactions', methods=['GET'])

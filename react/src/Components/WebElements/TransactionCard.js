@@ -7,12 +7,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function TransactionCard({ img }) {
   return (
-    <Card sx={{ maxWidth: 1000 }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="1000"
+          height="140"
           image={img}
+          alt="certificate of purchase"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +26,7 @@ export default function TransactionCard({ img }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={ () => { console.log("Clicked!"); } }size="small" color="primary">
+        <Button size="small" color="primary">
           Share
         </Button>
       </CardActions>

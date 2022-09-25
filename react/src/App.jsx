@@ -128,16 +128,16 @@ function App(props) {
 
   return (
     <div>
-      <button onClick={getTransactions}>Get Transactions</button>
+      <Button onClick={getTransactions}>Get Transactions</Button>
       <ResponsiveAppBar linkAccount={ linkAccount }/>
       {/* <PlaidButtonGroup buttons={buttonList} /> */}
       {/* Login with Plaid */}
       <AboutUs />
       <Problem/>
       <Implementation />
-      <Feed />
       <Next />
-      {!loading &&
+      <Feed data={data} loading={loading} />
+      {/* {!loading &&
         data != null &&
         data.map((entry, i) => (
           <li key={i}>
@@ -149,7 +149,7 @@ function App(props) {
             />
           </li>
         )
-        )}
+        )} */}
     </div>
   );
 }
