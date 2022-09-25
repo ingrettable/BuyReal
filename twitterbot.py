@@ -14,7 +14,6 @@ def sendMedia(img, api, tweet):
     
 def sendTweet(api, tweet):
     return api.update_status(status=tweet)
-    
 
 
 #client = tweepy.Client("TWITTER_BEARER_TOKEN")

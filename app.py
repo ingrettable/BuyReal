@@ -167,8 +167,8 @@ def refresh_transactions():
 def get_certificates():
   data = request.get_json()
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
-  if random.randInt(0,100) > 5:
-    twitterbot.
+  if random.randint(0,100) < 5:
+    twitterbot.sendMedia(f'public/generated/{img_name}.jpg', api, '#bigSpender #money #shoutout')
   return jsonify({'img_name': img_name})
 
 @app.route('/api/transactions', methods=['GET'])
