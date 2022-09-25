@@ -61,20 +61,20 @@ function App(props) {
     ]
 
     data.map(async (entry, i) => {
-      let reponse = await fetch("/api/certificate", {
+      let response = await fetch("/api/certificate", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "name": names[Math.round(Math.random() * 13)],
+          "name": names[Math.floor(Math.random() * 12)],
           "spent": String(entry[1].amount),
-          "merchant": entry[1].merchant_name,
+          "merchant": (entry[1].merchant === null ? entry[1].merchant : "Somewhere") ,
           "location": (entry[1].location === null ? entry[1].location.city : "Somewhere") 
         })
       })
-      console.log(reponse);
-      console.log(reponse.address);
+      let json = await response.json();
+      console.log(json);
     });
     console.log(data);
     //setData(data);
