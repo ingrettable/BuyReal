@@ -15,7 +15,7 @@ export default function TransactionCard({ img, data }) {
     let link = 'https://twitter.com/intent/tweet?url=&text='
     let needs_to_be_encoded = 'Just spent $' + data.amount + ' at ' + (data.merchant_name === null ? "Somewhere" : data.merchant_name) + '! #bigSpender #money'
     link += encodeURIComponent(needs_to_be_encoded);
-    window.location = link
+    window.open(link)
   }
   
   const style = {
