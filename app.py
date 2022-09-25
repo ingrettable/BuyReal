@@ -215,6 +215,10 @@ def get_balance():
         error_response = format_error(e)
         return jsonify(error_response)
 
+@app.route("/assets/<file>")
+def get_image(file):
+  return send_file(f"./public/generated/{file_name}",mimetype='image/png')
+
 def pretty_print_response(response):
   print(json.dumps(response, indent=2, sort_keys=True, default=str))
 
