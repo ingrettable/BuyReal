@@ -11,7 +11,7 @@ function Next({}) {
   "- BeReal Mode: BuyReal will tweet a user's random transaction once a day",
   "- Honest Mode: BuyReal will tweet all of the transactions of the user ",
   "- Charity Mode: BuyReal will only tweet charity donations",
-  "- Real Data. Once implementing more of the other features, we could move from the Plaid Sandbox instance to the Plaid Developer or Plaid Production instance so we can pull real transaction history from users."]
+  "Adding Real Data. Once implementing more of the other features, we could move from the Plaid Sandbox instance to the Plaid Developer or Plaid Production instance so we can pull real transaction history from users."]
 
   return (
     <>
