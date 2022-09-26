@@ -13,6 +13,8 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import send_file
+from flask_cors import CORS
+# ----------------------------
 from pymongo import MongoClient
 import plaid, random
 import os
@@ -26,6 +28,7 @@ import twitterbot
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 # Fill in your Plaid API keys - https://dashboard.plaid.com/account/keys
 PLAID_CLIENT_ID = os.getenv('PLAID_CLIENT_ID')
@@ -95,6 +98,10 @@ for product in PLAID_PRODUCTS:
 access_token = None
 
 item_id = None
+
+@app.route('/', methods=["GET"])
+def home():
+  return 'homepage loaded'
 
 @app.route('/api/info', methods=['POST'])
 def info():

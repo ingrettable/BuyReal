@@ -5,3 +5,8 @@ __pycache__
 react/node_modules
 .DS_Store
 public/generated/*
+react/src/Components/WebElements/twitter.txt
+.env.example
+backend/awsEcrLogin.sh
+deployReact.sh
+backend/aws-deploy/setenvs.sh
