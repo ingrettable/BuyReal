@@ -1,5 +1,6 @@
 ![github repo badge: Host](https://img.shields.io/badge/Host-AWS-181717?color=orange) ![github repo badge: Frontend](https://img.shields.io/badge/Frontend-React-181717?color=blue)  ![github repo badge: database](https://img.shields.io/badge/database-mongoDB-181717?color=green) ![github repo badge: backend](https://img.shields.io/badge/backend-flask-181717?color=blue) ![github repo badge: Domain](https://img.shields.io/badge/Domain-Domain.com-181717?color=red) ![github repo badge: Virtualized](https://img.shields.io/badge/Virtualized-Docker-181717?color=blue) ![github repo badge: API](https://img.shields.io/badge/API-Plaid-181717?color=purple) ![github repo badge: api](https://img.shields.io/badge/API-Twitter-181717?color=blue)  
 # BuyReal
+[![github repo badge: Twitter](https://img.shields.io/badge/Twitter-@OfficialBuyReal-181717?color=blue)](https://twitter.com/OfficialBuyReal) [![github repo badge: Website](https://img.shields.io/badge/Website-buyreal.tech-181717?color=red)](https://buyreal.tech)
 
 Page View             |  Twitter View
 :-------------------------:|:-------------------------:
