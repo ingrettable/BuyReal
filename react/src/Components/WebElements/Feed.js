@@ -17,7 +17,7 @@ function Feed({ data, loading }) {
         data != null &&
         data.map((entry) => ( 
           <Grid xs={6}>
-           <TransactionCard data={entry[1]} img={'assets/' + entry[1].img_name} alt="certificate"/>
+           <TransactionCard data={entry[1]} img={'api/' + entry[1].img_name} alt="certificate"/>
           </Grid>
         ))
       }

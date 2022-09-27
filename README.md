@@ -40,6 +40,8 @@ In order to collect credit card transaction information in our backend, we used 
 
 ## Challenges we ran into
 
+Oh boy, where do we begin?
+
 The first of many challenges we ran into was Twitter. We originally planned for BuyReal to work exclusively through Twitter, with a lightweight frontend for account linking. All transactions would go directly to a user's Twitter account allowing them to share with all their existing followers. However, Twitter didn't approve us for API access until 24 hours into the Hackathon, so we had to create our own feed with React. We tried our best, but it does not come close to the user experience of Twitter.
 
 Then, Google Cloud. We wanted to publish our project to a Compute Engine instance in Google Cloud — saying this was a disaster doesn't come close to describing how bad it was. We could not get Port 80 to open no matter what we tried, preventing us from accessing our website. Then, while we were troubleshooting, we ran "apt-get upgrade" on our VM which got stuck on 97% for over 30 minutes before we force shut it down. Upon powering it back up, it was completely dead. And, while we could have tried another Cloud host, it wouldn't have mattered because Stony Brook University blocked our free domain from Domain.com, buyreal.tech, for containing malware! That is why, for the time being, the project is locally hosted.

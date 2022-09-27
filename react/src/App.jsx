@@ -128,7 +128,7 @@ function App(props) {
         data != null &&
         data.map((entry, i) => (
           <li key={i}>
-            <img src={"assets/" + entry[1].img_name} alt="certificate" 
+            <img src={"api/" + entry[1].img_name} alt="certificate" 
               style = {{
                 width: "80%",
                 height: "auto"

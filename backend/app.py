@@ -230,7 +230,7 @@ def get_balance():
         error_response = format_error(e)
         return jsonify(error_response)
 
-@app.route("/assets/<file>", methods=['GET'])
+@app.route("/api/<file>", methods=['GET'])
 def get_image(file):
   filename = os.path.join(app.root_path, 'public/generated', file) + ".jpg"
   return send_file(filename, mimetype='image/jpg')
