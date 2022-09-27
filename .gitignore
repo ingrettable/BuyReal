@@ -10,3 +10,4 @@ react/src/Components/WebElements/twitter.txt
 backend/awsEcrLogin.sh
 deployReact.sh
 backend/aws-deploy/setenvs.sh
+backend/setenvs.sh

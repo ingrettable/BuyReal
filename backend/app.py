@@ -243,5 +243,5 @@ def format_error(e):
     return {'error': {'status_code': e.status, 'display_message':
                       response['error_message'], 'error_code': response['error_code'], 'error_type': response['error_type']}}
 
-if __name__ == '__main__':
-    app.run(port=os.getenv('PORT', 8080))
+# if __name__ == '__main__':
+#     app.run(port=os.getenv('PORT', 8080))
