@@ -11,3 +11,4 @@ backend/awsEcrLogin.sh
 deployReact.sh
 backend/aws-deploy/setenvs.sh
 backend/setenvs.sh
+backend/awsDeployBackend.sh

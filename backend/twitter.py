@@ -1,10 +1,7 @@
+# twitter.py
+# library for accessing twitter api functions
 import tweepy, os
 from dotenv import load_dotenv
-import numpy as np
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
-
 load_dotenv()
 
 def sendMedia(img, api, tweet):

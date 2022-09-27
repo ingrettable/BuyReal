@@ -1,5 +1,6 @@
 # source /Users/tnappy/node_projects/quickstart/python/bin/activate
 # Read env vars from .env file
+# flask backend file
 from plaid.model.products import Products
 from plaid.model.country_code import CountryCode
 from plaid.model.item_public_token_exchange_request import ItemPublicTokenExchangeRequest
@@ -24,7 +25,7 @@ import tweepy, os
 from dotenv import load_dotenv
 import numpy as np
 import certificates
-import twitterbot
+import twitter
 load_dotenv()
 
 app = Flask(__name__)
@@ -175,7 +176,7 @@ def get_certificates():
   data = request.get_json()
   img_name = certificates.completeCertificate(data['name'], data['spent'], data['merchant'], data['location'])
   if random.randint(0,100) < 5:
-    twitterbot.sendMedia(f'public/generated/{img_name}.jpg', api, '#bigSpender #money #shoutout')
+    twitter.sendMedia(f'public/generated/{img_name}.jpg', api, '#bigSpender #money #shoutout')
   return jsonify({'img_name': img_name})
 
 @app.route('/api/transactions', methods=['GET'])
