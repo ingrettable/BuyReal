@@ -4,6 +4,22 @@
 Page View             |  Twitter View
 :-------------------------:|:-------------------------:
 ![page view](https://cdn.discordapp.com/attachments/776168532353351710/1024167283192496188/unknown.png)  |  ![twitter view](https://cdn.discordapp.com/attachments/776168532353351710/1024167438104936478/unknown.png)
+
+## Our Core Values
+
+Our project revolves completely around our 3 core values
+- Democratize Micro Sponsorships
+- Increase Spending Transparancy
+- Promote Charitable Contributions
+
+## How Do We Address Our Core Values?
+
+Currently, Chipotle issues "Celebrity Cards", where anyone with one gets to eat at chipotle for free. The problem here is that these celebrities are in need of sponsorships and promotions the least. However, with BuyReal, since you are now able to see your friends' transactions, seeing all your friends purchase Chipotle will be significantly more influential than a photo of a celebrity eating at the resturant. This encourages Chipotle's marketing team to incentivize customers with a bottom-up approach. Since our project could be tied to only a specific bank or credit card, this would allow average folks to display their sponsored transactions to their twitter feed while keeping their other transasctions private
+
+Currently, if someone has a spending addiction, there is limited recourse to address the issue. No spreadsheet or chart will ever be as effective as peer pressure. This is where BuyReal comes in - by using our aggressive tracker mode, spending addicts will have all their transactions posted, with their friends able to comment their thoughts on the purchase. This will enable consumers to make more responsible spending decisions
+
+Lastly, we wanted to encourage charitable contributions. The best way to encourage someone is through peer pressure, and if you see all your friends posting their charitable donations, you will want to donate as well. This is why our charity mode allows you to post all transactions made toward 401c3 nonprofit organizations.
+
 ## Inspiration
 
 Many people make irresponsible and inconsiderate financial decisions because of the freedom that comes with a credit card. We wanted to create a project that would allow people to manage their purchases, as these purchases would become public to other BuyReal users — creating a community of people trying to get their spending on track. The website can also just be fun to use. It is funny and exciting to see a random purchase you made that day online! 
