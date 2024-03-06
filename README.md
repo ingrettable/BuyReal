@@ -4,7 +4,7 @@
 
 Page View             |  Twitter View
 :-------------------------:|:-------------------------:
-![page view](https://cdn.discordapp.com/attachments/776168532353351710/1024167283192496188/unknown.png)  |  ![twitter view](https://cdn.discordapp.com/attachments/776168532353351710/1024167438104936478/unknown.png)
+![page view](assets/page-view.png)  |  ![twitter view](assets/twitter-view.png)
 
 ## Our Core Values
 
